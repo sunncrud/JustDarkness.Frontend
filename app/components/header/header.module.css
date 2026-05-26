@@ -1,0 +1,25 @@
+@reference "../../globals.css";
+
+.headerWrapper {
+  @apply sticky top-0 z-50 w-full border-b shadow-sm bg-white dark:bg-black;
+}
+
+.headerContainer {
+  @apply relative mx-auto flex max-w-5xl items-center justify-between px-4 py-4;
+}
+
+.logoText {
+  @apply text-xl font-bold transition;
+}
+
+.navLinks {
+  @apply absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:flex items-center gap-6 text-sm font-medium;
+}
+
+.navLinkItem {
+  @apply transition hover:text-gray-600 dark:hover:text-gray-300;
+}
+
+.loginButton {
+  @apply rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-gray-900 transition hover:bg-gray-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700;
+}

@@ -1,0 +1,10 @@
+@reference "../globals.css";
+
+/* --- SEARCH BAR --- */
+.searchWrapper {
+  @apply relative w-full sm:w-72;
+}
+
+.searchInput {
+  @apply w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 bg-transparent text-sm focus:outline-none focus:border-black dark:focus:border-white transition;
+}

@@ -1,0 +1,57 @@
+@reference "../globals.css";
+
+/* --- PAGE LAYOUT --- */
+.pageContainer {
+  @apply flex flex-col gap-8 w-full max-w-5xl mx-auto px-4 py-8 text-black dark:text-white;
+}
+
+.headerContainer {
+  @apply flex flex-col sm:flex-row justify-between items-center gap-4;
+}
+
+.pageTitle {
+  @apply text-3xl font-bold;
+}
+
+/* --- SEARCH BAR --- */
+.searchWrapper {
+  @apply relative w-full sm:w-72;
+}
+
+.searchInput {
+  @apply w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 bg-transparent text-sm focus:outline-none focus:border-black dark:focus:border-white transition;
+}
+
+/* --- USERS GRID & CARDS --- */
+.usersGrid {
+  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6;
+}
+
+.userCard {
+  @apply flex flex-col items-center gap-3 p-6 border border-gray-300 dark:border-gray-800 rounded-2xl bg-white dark:bg-black transition hover:-translate-y-1 hover:shadow-md cursor-pointer;
+}
+
+.avatarWrapper {
+  @apply w-20 h-20 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800;
+}
+
+.avatarImage {
+  @apply w-full h-full object-cover;
+}
+
+.userName {
+  @apply font-semibold text-lg;
+}
+
+/* --- PAGINATION --- */
+.paginationWrapper {
+  @apply flex justify-center items-center gap-2 mt-4;
+}
+
+.pageButton {
+  @apply border border-gray-300 dark:border-gray-700 rounded-md px-3 py-1 text-sm font-medium transition hover:bg-gray-100 dark:hover:bg-gray-900;
+}
+
+.activePageButton {
+  @apply border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black rounded-md px-3 py-1 text-sm font-medium;
+}

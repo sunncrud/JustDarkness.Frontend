@@ -1,0 +1,83 @@
+@reference "../globals.css";
+
+/* --- LAYOUT --- */
+.pageContainer {
+  @apply flex min-h-[75vh] items-center justify-center px-4 py-12;
+}
+
+.authCard {
+  @apply w-full max-w-md border border-gray-300 dark:border-gray-800 rounded-2xl p-8 bg-white dark:bg-black shadow-sm;
+}
+
+/* --- HEADER --- */
+.header {
+  @apply flex flex-col items-center mb-8 text-center;
+}
+
+.title {
+  @apply text-2xl font-bold text-black dark:text-white mb-2;
+}
+
+.subtitle {
+  @apply text-sm text-gray-500;
+}
+
+/* --- DISCORD BUTTON --- */
+.discordButton {
+  @apply w-full flex items-center justify-center gap-3 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2.5 text-sm font-medium transition hover:bg-gray-100 dark:hover:bg-gray-900 text-black dark:text-white mb-6;
+}
+
+.discordIcon {
+  @apply w-5 h-5 fill-current;
+}
+
+/* --- DIVIDER --- */
+.dividerRow {
+  @apply flex items-center mb-6;
+}
+
+.dividerLine {
+  @apply flex-grow border-t border-gray-300 dark:border-gray-800;
+}
+
+.dividerText {
+  @apply mx-4 text-xs text-gray-500 uppercase tracking-widest;
+}
+
+/* --- FORM & INPUTS --- */
+.form {
+  @apply flex flex-col gap-4;
+}
+
+.inputGroup {
+  @apply flex flex-col gap-1.5;
+}
+
+.labelRow {
+  @apply flex justify-between items-center;
+}
+
+.label {
+  @apply text-sm font-medium text-black dark:text-white;
+}
+
+.forgotPassword {
+  @apply text-xs text-gray-500 hover:text-black dark:hover:text-white transition underline underline-offset-2;
+}
+
+.input {
+  @apply w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 bg-transparent text-sm focus:outline-none focus:border-black dark:focus:border-white transition;
+}
+
+.submitButton {
+  @apply w-full rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white transition hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 mt-2;
+}
+
+/* --- FOOTER --- */
+.footer {
+  @apply mt-6 text-center text-sm text-gray-500;
+}
+
+.footerLink {
+  @apply font-medium text-black dark:text-white hover:underline underline-offset-4 ml-1 transition;
+}
