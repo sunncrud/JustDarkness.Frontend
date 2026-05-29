@@ -1,43 +1,30 @@
 import SearchBar from "../components/SearchBar";
-import NationGrid from "./NationGrid";
-import Pagination from "./Pagination";
+import Pagination from "../components/Pagination";
+import GenericGrid from "../components/GenericGrid"; 
+import NationCard from "./NationCard"; 
 import styles from "./nations.module.css";
+import { processPageData } from "../lib/pagination"; 
 
-const ALL_NATIONS = [
-  "Snow Society", "Desert Outpost", "Oceania", "Nether Empire",
-  "Mushroom Kingdom", "Jungle Tribe", "Swamp Alliance", "Badlands Clan",
-  "Tundra Collective", "End Vanguard", "Sky Citadel", "Deep Dark Order"
-];
-
-const ITEMS_PER_PAGE = 8;
+const ALL_NATIONS = ["Snow Society", "Desert Outpost", "Oceania"];
 
 export default async function NationsPage({ searchParams }: { searchParams: Promise<{ q?: string; page?: string }> }) {
-  const resolvedParams = await searchParams;
-  const query = resolvedParams.q || "";
-  const currentPage = Number(resolvedParams.page) || 1;
-
-  const filteredNations = ALL_NATIONS.filter(nation => 
-    nation.toLowerCase().includes(query.toLowerCase())
-  );
-
-  const totalPages = Math.ceil(filteredNations.length / ITEMS_PER_PAGE);
-  const paginatedNations = filteredNations.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE, 
-    currentPage * ITEMS_PER_PAGE
-  );
+  const { paginatedItems, totalPages, currentPage } = await processPageData(ALL_NATIONS, searchParams);
 
   return (
     <div className={styles.pageContainer}>
       <div className={styles.headerContainer}>
         <h1 className={styles.pageTitle}>Nations</h1>
-        <SearchBar />
+        <SearchBar placeholder="Search nations..." />
       </div>
 
-      <NationGrid nations={paginatedNations} />
+      <GenericGrid 
+        items={paginatedItems} 
+        emptyMessage="No nations found."
+        gridClassName={styles.nationsGrid}
+        renderItem={(nationName) => <NationCard key={nationName} name={nationName} />} 
+      />
 
-      {totalPages > 1 && (
-        <Pagination currentPage={currentPage} totalPages={totalPages} />
-      )}
+      {totalPages > 1 && <Pagination currentPage={currentPage} totalPages={totalPages} />}
     </div>
   );
 }

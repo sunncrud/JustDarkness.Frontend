@@ -1,24 +1,30 @@
-import SearchBar from "./SearchBar";
-import UserGrid from "./UserGrid";
-import Pagination from "./Pagination";
+import SearchBar from "../components/SearchBar";
+import Pagination from "../components/Pagination";
+import GenericGrid from "../components/GenericGrid"; 
+import UserCard from "./UserCard"; 
 import styles from "./users.module.css";
+import { processPageData } from "../lib/pagination"; 
 
-export default function UsersPage() {
+const ALL_USERS = ["Alice", "Bob", "Charlie", "David","Alice", "Bob", "Charlie"];
+
+export default async function UsersPage({ searchParams }: { searchParams: Promise<{ q?: string; page?: string }> }) {
+  const { paginatedItems, totalPages, currentPage } = await processPageData(ALL_USERS, searchParams);
+
   return (
     <div className={styles.pageContainer}>
-      
-      {/* Header & Search */}
       <div className={styles.headerContainer}>
         <h1 className={styles.pageTitle}>Users</h1>
-        <SearchBar />
+        <SearchBar placeholder="Search users..." />
       </div>
-
-      {/* Main Grid */}
-      <UserGrid />
-
-      {/* Footer Navigation */}
-      <Pagination />
       
+      <GenericGrid 
+        items={paginatedItems} 
+        emptyMessage="No users found."
+        gridClassName={styles.usersGrid}
+        renderItem={(username, index) => <UserCard key={`${username}-${index}`} username={username} />}
+      />
+
+      {totalPages > 1 && <Pagination currentPage={currentPage} totalPages={totalPages} />}
     </div>
   );
 }

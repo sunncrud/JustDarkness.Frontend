@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import styles from "./nations.module.css";
+import styles from "./components.module.css";
 
 export default function Pagination({ currentPage, totalPages }: { currentPage: number, totalPages: number }) {
   const router = useRouter();

@@ -8,3 +8,36 @@
 .searchInput {
   @apply w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2 bg-transparent text-sm focus:outline-none focus:border-black dark:focus:border-white transition;
 }
+
+/* --- PAGINATION --- */
+.paginationWrapper {
+  @apply flex justify-center items-center gap-2 mt-4;
+}
+
+.pageButton {
+  @apply border border-gray-300 dark:border-gray-700 rounded-md px-3 py-1 text-sm font-medium transition hover:bg-gray-100 dark:hover:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.activePageButton {
+  @apply border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black rounded-md px-3 py-1 text-sm font-medium;
+}
+
+.nationsGrid {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
+}
+
+.nationCard {
+  @apply flex flex-col gap-4 p-5 border border-gray-300 dark:border-gray-800 rounded-2xl bg-white dark:bg-black transition hover:-translate-y-1 hover:shadow-md cursor-pointer;
+}
+
+.paginationWrapper {
+  @apply flex justify-center items-center gap-2 mt-4;
+}
+
+.pageButton {
+  @apply border border-gray-300 dark:border-gray-700 rounded-md px-3 py-1 text-sm font-medium transition hover:bg-gray-100 dark:hover:bg-gray-900;
+}
+
+.activePageButton {
+  @apply border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black rounded-md px-3 py-1 text-sm font-medium;
+}
